@@ -22,3 +22,4 @@ def sorter(row):
 
 sorted(list_to_be_sorted, key = lambda k: k['score'],reverse=True)
 sorted(list_to_be_sorted, key = lambda k: k['name'], reverse=True)
+
