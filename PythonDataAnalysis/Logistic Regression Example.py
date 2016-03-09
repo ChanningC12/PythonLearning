@@ -33,6 +33,9 @@ from sklearn.cross_validation import cross_val_score
 dta = sm.datasets.fair.load_pandas().data
 dta.head()
 
+# export data
+dta.to_csv('dta.csv',index=False)
+
 # add "affair" column: 1 represents having affairs, 0 not
 dta['affair'] = (dta.affairs>0).astype(int)
 dta.head()
