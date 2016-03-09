@@ -16,3 +16,33 @@ dta=as.data.table(dta)
 summary(dta$affairs)
 dta$affair = ifelse(dta$affairs>0,1,0)
 table(dta$affair)
+mean(dta$affair)
+
+# initial logistic model
+dtalogit = glm(affair~rate_marriage + age + yrs_married + children
+               + religious + educ + as.factor(occupation) + as.factor(occupation_husb),
+                data = dta, family=binomial)
+summary(dtalogit)
+plot(dtalogit)
+
+# stepwise regression to auto select variables
+dtalogit2 = step(dtalogit,scope~rate_marriage + age + yrs_married + children
+                 + religious + educ + as.factor(occupation) + as.factor(occupation_husb),test='F')
+
+# simplified stepwise regression
+dtalogit3 = glm(affair ~ rate_marriage + age + yrs_married + religious + as.factor(occupation),
+                data=dta,family=binomial)
+summary(dtalogit3)
+
+# train, test, validation
+
+
+
+
+
+
+
+
+
+
+
