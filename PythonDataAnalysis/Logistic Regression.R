@@ -35,8 +35,19 @@ dtalogit3 = glm(affair ~ rate_marriage + age + yrs_married + religious + as.fact
 summary(dtalogit3)
 
 # train, test, validation
-
-
+# use the remaining data, colled the estimation or training sample, to build your model.
+# The training set should be large enough to make reliable estimates
+set.seed(12345)
+dta$train = runif(nrow(dta))>0.5 # assign to test / train set 
+table(dta$train)
+dtalogit4 = glm(affair ~ rate_marriage + age + yrs_married + religious + as.factor(occupation),
+                data=dta,subset=train,family=binomial)
+summary(dtalogit4)
+deviance(dtalogit4)
+mean(dtalogit4$residuals^2)
+yhat = predict(dtalogit4,dta[!dta$train,])
+length(yhat)
+mean((dta))
 
 
 
