@@ -72,7 +72,7 @@ f(100) == f2(100)
 # Working directory
 import os
 os.getcwd()
-os.chdir('/Users/chicheng/Desktop/PythonLearning/PythonLearning/PythonDataAnalysis')
+os.chdir('/Users/chicheng/Desktop/Github/PythonLearning/PythonDataAnalysis')
 # Open a file
 fobj = open("Dataset.csv")
 fobj.read(1024)
@@ -92,7 +92,6 @@ df = pandas.read_csv(open("Dataset.csv"))
 print df
 
 # plot it
-%matplotlib inline
 df.plot(kind="scatter",x="Income",y="Rent_Amount")
 
 
